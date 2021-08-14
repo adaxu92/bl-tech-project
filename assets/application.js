@@ -2,10 +2,13 @@ const app = new Vue({
   el: '#app',
   delimiters: ['${', '}'],
   data: {
-    message: 'Hello Vue!'
+    message: 'Hello guys',
+    collectionData: [],
   },
   created() {
-    const collectionHandles = document.getElementById('app').dataset.collectionHandles;
-    this.collectionHandles = collectionHandles.split(',');
+    this.collectionData = collectionDataJson;
+  },
+  methods: {
+
   },
 })
