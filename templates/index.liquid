@@ -9,30 +9,18 @@
   </div>
 {% endfor %}
 
-<script type="application/javascript">
-const collectionDataJson = [
-  {%- for link in linklists.main-menu.links -%}
-    {%- unless link.handle == 'home' -%}
-    {%- assign collection = collections[link.handle] -%}
-      { 
-        '{{ link.handle | replace: '-', '_' }}':{
-          'title': '{{ link.title}}',
-          'handle':'{{ link.handle }}',
-          'image': '{{ collection.products.first | img_url: 'large' }}',
-          'product_count': {{collection.products_count}}
-        }
-      }{%- unless forloop.last -%},{%- endunless -%}
-    {%- endunless -%}
-  {%- endfor -%}  
-]
-</script>
-
-<div id="app">
-  <div v-for="data in collectionData">
-    <a :href="data[Object.keys(data)].handle">
-      <image :src="data[Object.keys(data)].image" />
-      <h3 v-html="data[Object.keys(data)].title"></h3>
-      <p v-html="data[Object.keys(data)].product_count"></p>
-    </a>
+<div id="app" class="splide">
+  <div class="splide__track">
+    <div class="splide__list">
+      <div v-for="data in collectionData" class="splide__slide">
+        <a :href="data[Object.keys(data)].url">
+          <image :src="data[Object.keys(data)].image" />
+          <h3 v-html="data[Object.keys(data)].title"></h3>
+          <p>Number of products: ${data[Object.keys(data)].product_count}</p>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
+
+{%- render 'collection-json' -%}
