@@ -8,3 +8,13 @@
     </a>
   </div>
 {% endfor %}
+
+{%- capture linklist_array -%}
+  {%- for link in linklists.main-menu.links -%}
+    {%- unless link.handle == 'home' -%}
+      {{- link.handle -}}{%- unless forloop.last -%},{%- endunless -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+<div id="app" data-collection-handles="{{linklist_array}}">${message}</div>
