@@ -1,2 +1,60 @@
-// Put your styles in this file.
-// Note: "@import" rules aren’t supported.
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+header {
+  padding: 5px 0 10px;
+  margin-bottom: 40px;
+  text-align: center;
+  background-color: #cbd5cc;
+}
+
+header > h1 {
+  font-size: 18px;
+}
+
+nav {
+  padding: 0 0 0.67em;
+  text-transform: capitalize;
+}
+
+nav > a {
+  padding: 0 20px;
+}
+
+#app {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.splide__slide img {
+  border-radius: 5px;
+}
+.splide__pagination {
+  bottom: -20px;
+}
+.splide__arrow {
+  opacity: 1;
+}
+
+.splide__arrow:disabled {
+  opacity: 0.5;
+}
+
+.splide__arrow,
+.splide__pagination__page {
+  background: #cbd5cc;
+}
+
+.splide__pagination__page.is-active {
+  transform: none;
+  background: #315d35;
+}
