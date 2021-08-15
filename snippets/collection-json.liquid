@@ -4,12 +4,10 @@ const collectionDataJson = [
     {%- unless link.handle == 'home' -%}
     {%- assign collection = collections[link.handle] -%}
       { 
-        '{{ link.handle | replace: '-', '_' }}':{
-          'title': '{{ collection.title }}',
-          'url':'{{ collection.url }}',
-          'image': '{{ collection.products.first | img_url: 'large' }}',
-          'product_count': {{collection.products_count}}
-        }
+        'title': '{{ collection.title }}',
+        'url':'{{ collection.url }}',
+        'image': '{{ collection.products.first | img_url: 'large' }}',
+        'product_count': {{collection.products_count}}
       }{%- unless forloop.last -%},{%- endunless -%}
     {%- endunless -%}
   {%- endfor -%}  
