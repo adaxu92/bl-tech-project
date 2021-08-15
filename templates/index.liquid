@@ -1,26 +1,5 @@
-{% for product in collections.frontpage.products limit:4 %}
-  <div>
-    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-    {{ product.price | money }}
-    {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-    <a href="{{ product.url | within: collection }}">
-      <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-    </a>
-  </div>
-{% endfor %}
-
 <div id="app" class="splide">
-  <div class="splide__track">
-    <div class="splide__list">
-      <div v-for="data in collectionData" class="splide__slide">
-        <a :href="data[Object.keys(data)].url">
-          <image :src="data[Object.keys(data)].image" />
-          <h3 v-html="data[Object.keys(data)].title"></h3>
-          <p>Number of products: ${data[Object.keys(data)].product_count}</p>
-        </a>
-      </div>
-    </div>
-  </div>
+  <slider :data="collectionData"></slider>
 </div>
 
 {%- render 'collection-json' -%}
