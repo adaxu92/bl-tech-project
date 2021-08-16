@@ -16,7 +16,7 @@
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14" defer></script>
     <!-- Index -->
-    <script src="{{'index.js' | asset_url}}" defer></script>
+    <script type="module" src="{{'index.js' | asset_url}}" defer></script>
   {% endif %}
 
   {{ 'application.css' | asset_url | stylesheet_tag }}
